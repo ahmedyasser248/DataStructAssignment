@@ -6,17 +6,7 @@ import java.util.regex.Pattern;
 
 public class PolynomialSolver implements IPolynomialSolver {
 
-  public static void main(String[] args) {
-    PolynomialSolver test = new PolynomialSolver();
-    int[][] function = { {9,0},{-2,1},{5,3} };
-    int[][] function1 = { {1,0},{-1,2},{2,3} };
-    test.setPolynomial('A',function);
-    test.setPolynomial('B',function1);
-    test.print('A');
-    System.out.println(test.evaluatePolynomial('A',2));
-    test.multiply('A','B');
-    test.print('M');
-  }
+
   public class term {
     int coeff;
     int exp;
@@ -28,7 +18,7 @@ public class PolynomialSolver implements IPolynomialSolver {
   }
   public HashMap<Character, Node> polynomials=new HashMap<>();
 
-  void removeDuplicates(DLinkedList result) {
+  public void removeDuplicates(DLinkedList result) {
     Node temp1=result.head;
     Node temp2;
     term currentTerm1;
@@ -141,7 +131,6 @@ public class PolynomialSolver implements IPolynomialSolver {
       }
       temp = temp.next;
     }
-    System.out.println(expression);
     return expression;
   }
 
@@ -176,8 +165,10 @@ public class PolynomialSolver implements IPolynomialSolver {
       if(currentTerm1.exp==currentTerm2.exp) {
         int sumOfCoeff=currentTerm1.coeff+currentTerm2.coeff;
         int sumOfExp=currentTerm1.exp;
-        term termResult=new term(sumOfCoeff,sumOfExp);
-        Result.add(termResult);
+        if(sumOfCoeff!=0) {
+          term termResult = new term(sumOfCoeff, sumOfExp);
+          Result.add(termResult);
+        }
         temp1=temp1.next;
         temp2=temp2.next;
       }else if(currentTerm2.exp>currentTerm1.exp) {
@@ -202,6 +193,10 @@ public class PolynomialSolver implements IPolynomialSolver {
       term termResult=new term(currentTerm1.coeff,currentTerm1.exp);
       Result.add(termResult);
       temp1=temp1.next;
+    }
+    // add (0,0) to the linked list if the result of the operation is zero
+    if(Result.size==0){
+      Result.add(new term(0,0));
     }
     polynomials.put('R', Result.head);//set it in the hashtable.
     //now we transfer data in linkedlist result to 2d array.
@@ -259,6 +254,10 @@ public class PolynomialSolver implements IPolynomialSolver {
       Result.add(termResult);
       temp1=temp1.next;
     }
+    // add (0,0) to the linked list if the result of the operation is zero
+    if(Result.size==0){
+      Result.add(new term(0,0));
+    }
     polynomials.put('R', Result.head);  //set it in the hashtable.
     //now we transfer data in linkedlist result to 2d array.
     int [][] sumArray=new int[Result.size][2];
@@ -295,7 +294,10 @@ public class PolynomialSolver implements IPolynomialSolver {
       temp1 = temp1.next;
     }
     removeDuplicates(Result);
-
+    // add (0,0) to the linked list if the result of the operation is zero
+    if(Result.size==0){
+      Result.add(new term(0,0));
+    }
     int [][] productArray=new int[Result.size][2];
     Node temp3=Result.head;
     term currentTerm=(term)temp3.element;
@@ -306,7 +308,7 @@ public class PolynomialSolver implements IPolynomialSolver {
       temp3=temp3.next;
     }
     sort2dArray(productArray);
-    setPolynomial('M',productArray);
+    setPolynomial('R',productArray);
     return productArray;
   }
 }
