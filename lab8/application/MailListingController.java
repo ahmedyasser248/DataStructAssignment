@@ -130,10 +130,15 @@ public App appinstance = new App();
   public void viewButton(ActionEvent Event) throws IOException{
     switch (appinstance.currentFolder.getViewedFolder()){
       case "inbox":
-        ObservableList<Mail> viewedMails = tableViewInbox.getSelectionModel().getSelectedItems();
-        appinstance.currentFolder.openMailWindows(appinstance.currentFolder.listToLinkedList(viewedMails));
+        ObservableList<Mail> viewedMailsInbox = tableViewInbox.getSelectionModel().getSelectedItems();
+        appinstance.currentFolder.openMailWindows(appinstance.currentFolder.listToLinkedList(viewedMailsInbox));
+        break;
+      case "sent" :
+        ObservableList<Mail> viewedMailsSent = tableViewSent.getSelectionModel().getSelectedItems();
+        appinstance.currentFolder.openMailWindows(appinstance.currentFolder.listToLinkedList(viewedMailsSent));
         break;
     }
+
   }
 
   public void tabChange(String tab) throws IOException {
@@ -166,7 +171,10 @@ public App appinstance = new App();
     switch (appinstance.currentFolder.getViewedFolder()){
       case "inbox":
         tableViewInbox.setItems(setObservableMails(appinstance.listEmails(appinstance.currentFolder.getCurrentPage())));
-
+        break;
+      case "sent":
+        tableViewSent.setItems(setObservableMails(appinstance.listEmails(appinstance.currentFolder.getCurrentPage())));
+        break;
     }
   }
 
