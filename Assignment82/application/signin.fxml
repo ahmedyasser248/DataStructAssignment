@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootpane" prefHeight="321.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller1">
+  <children>
+    <Button layoutX="101.0" layoutY="226.0" mnemonicParsing="false" onAction="#signin" prefHeight="26.0" prefWidth="134.0" text="Sign in" />
+    <Button layoutX="99.0" layoutY="275.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="134.0" text="Sign up" />
+    <TextField fx:id="tf" layoutX="92.0" layoutY="91.0" promptText="Username" />
+    <PasswordField fx:id="pw" layoutX="92.0" layoutY="136.0" prefHeight="26.0" prefWidth="149.0" promptText="Password" />
+    <Label fx:id="lbl" layoutX="59.0" layoutY="167.0" prefHeight="47.0" prefWidth="207.0" />
+    <Label alignment="CENTER" layoutX="84.0" layoutY="31.0" prefHeight="18.0" prefWidth="168.0" text="WELCOME" textFill="#020092">
+      <font>
+        <Font name="System Bold Italic" size="24.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>

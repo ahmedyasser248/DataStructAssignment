@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="417.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MailListingController">
+   <children>
+      <TabPane fx:id="tabPane" layoutX="102.0" layoutY="72.0" prefHeight="317.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="InboxTab" text="Inbox">
+            <content>
+                <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="243.0" prefWidth="600.0">
+                     <children>
+                    <TableView fx:id="tableViewInbox" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="600.0" stylesheets="@application.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <columns>
+                        <TableColumn fx:id="senderColumn" prefWidth="138.40003049373627" text="Sender" />
+                        <TableColumn fx:id="subjectColumn" prefWidth="325.6000061035156" text="Subject" />
+                        <TableColumn fx:id="dateColumn" prefWidth="133.5999755859375" text="Date" />
+                      </columns>
+                      <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                      </columnResizePolicy>
+                    </TableView>
+                     </children>
+                </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="DraftTab" text="drafts" />
+          <Tab fx:id="SentTab" text="sent">
+            <content>
+              <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="600.0">
+                <children>
+                  <TableView fx:id="tableViewSent" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="600.0" stylesheets="@application.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="sentToColumnSent" prefWidth="138.40003049373627" text="Sent to" />
+                      <TableColumn fx:id="subjectColumnSent" prefWidth="325.6000061035156" text="Subject" />
+                      <TableColumn fx:id="dateColumnSent" prefWidth="133.5999755859375" text="Date" />
+                    </columns>
+                    <columnResizePolicy>
+                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                  </TableView>
+                </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="TrashTab" text="trash">
+          <content>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="243.0" prefWidth="600.0">
+              <children>
+                <TableView fx:id="tableViewTrash" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="600.0" stylesheets="@application.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columns>
+                    <TableColumn fx:id="senderColumnTrash" prefWidth="138.40003049373627" text="Sender" />
+                    <TableColumn fx:id="subjectColumnTrash" prefWidth="325.6000061035156" text="Subject" />
+                    <TableColumn fx:id="dateColumnTrash" prefWidth="133.5999755859375" text="Date" />
+                  </columns>
+                  <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+                </TableView>
+              </children>
+            </AnchorPane>
+          </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+
+      <VBox layoutY="75.0" prefHeight="266.0" prefWidth="102.0">
+         <children>
+            <Button fx:id="composeButton" alignment="CENTER" mnemonicParsing="false" onAction="#composeButton" prefHeight="30.0" prefWidth="65.0" text="compose">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="refreshButton" alignment="CENTER" mnemonicParsing="false" onAction="#refreshButton" prefHeight="30.0" prefWidth="65.0" text="refresh">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="viewButton" mnemonicParsing="false" onAction="#viewButton" prefHeight="30.0" prefWidth="65.0" text="view">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="move">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="65.0" text="delete">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="contactsButton" mnemonicParsing="false" onAction="#contactsButton" prefHeight="50.0" prefWidth="66.0" text="contacts">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <ComboBox fx:id="sortComboBox" layoutX="442.0" layoutY="33.0" prefWidth="150.0" />
+      <TextField fx:id="filterField" layoutX="222.0" layoutY="33.0" />
+      <Label layoutX="181.0" layoutY="37.0" text="Filter:" />
+      <Label layoutX="382.0" layoutY="37.0" text="Sort by:" />
+      <Button fx:id="applyButton" layoutX="629.0" layoutY="32.0" mnemonicParsing="false" onAction="#applyButton" text="Apply" />
+      <ComboBox fx:id="pageComboBox" layoutX="102.0" layoutY="32.0" prefHeight="26.0" prefWidth="47.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="475.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContactsController">
+  <children>
+    <Button fx:id="bt1" layoutX="43.0" layoutY="393.0" mnemonicParsing="false" onAction="#Add" prefHeight="26.0" prefWidth="112.0" text="Add contact" textFill="#00820b">
+      <font>
+        <Font name="System Bold Italic" size="13.0" />
+      </font></Button>
+    <TableView fx:id="tableView" layoutX="53.0" layoutY="103.0" prefHeight="208.0" prefWidth="494.0">
+      <columns>
+        <TableColumn fx:id="firstColumn" prefWidth="105.5999755859375" text="Name" />
+        <TableColumn fx:id="thirdColumn" prefWidth="204.79998779296875" text="User name" />
+        <TableColumn fx:id="secondCoulmn" onEditCommit="#changeOtherEmailsCellEvent" prefWidth="183.19998779296873" text="other Emails" />
+      </columns>
+    </TableView>
+    <TextField fx:id="tf1" layoutX="25.0" layoutY="351.0" promptText="Name" />
+    <Label fx:id="lbl" layoutX="197.0" layoutY="354.0" prefHeight="18.0" prefWidth="167.0" />
+    <Label alignment="CENTER" layoutX="123.0" layoutY="14.0" prefHeight="18.0" prefWidth="330.0" text="Contacts" textAlignment="CENTER" textFill="#00a22b">
+      <font>
+        <Font name="System Bold Italic" size="33.0" />
+      </font>
+    </Label>
+    <Button fx:id="bt2" layoutX="207.0" layoutY="395.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="112.0" text="Delete contact" textFill="#009708">
+      <font>
+        <Font name="System Bold Italic" size="13.0" />
+      </font>
+    </Button>
+    <Label fx:id="lb2" layoutX="364.0" layoutY="401.0" prefHeight="18.0" prefWidth="182.0" />
+  </children>
+</AnchorPane>
